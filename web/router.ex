@@ -2,10 +2,14 @@ defmodule Gyazo.Router do
   use Gyazo.Web, :router
 
   pipeline :api do
-    plug :accepts, ["json"]
   end
 
-  scope "/api", Gyazo do
+  scope "/", Gyazo do
     pipe_through :api
+
+    get "/", ImageController, :index
+    get "/:hash", ImageController, :show
+    post "/upload", ImageController, :create
+    options "/upload", ImageController, :options
   end
 end

@@ -6,8 +6,9 @@
 use Mix.Config
 
 # Configures the endpoint
+host_name = System.get_env("GYAZO_HOST_NAME") || "localhost"
 config :gyazo, Gyazo.Endpoint,
-  url: [host: "localhost"],
+  url: [host: host_name],
   root: Path.dirname(__DIR__),
   secret_key_base: "V62EsuKnGMNgSei8yazGPU1/0Njdm0nbFYJNmq7PPqdYJFiKFgabCuFr1XgG4zTe",
   render_errors: [accepts: ~w(json)],

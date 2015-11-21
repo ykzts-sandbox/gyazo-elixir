@@ -19,7 +19,8 @@ defmodule Gyazo.Mixfile do
   def application do
     [mod: {Gyazo, []},
      applications: [:phoenix, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :mariaex,
+                    :crypto]]
   end
 
   # Specifies which paths to compile per environment.
@@ -32,8 +33,10 @@ defmodule Gyazo.Mixfile do
   defp deps do
     [{:phoenix, "~> 1.0.3"},
      {:phoenix_ecto, "~> 1.1"},
-     {:postgrex, ">= 0.0.0"},
-     {:cowboy, "~> 1.0"}]
+     {:mariaex, "~> 0.4.2"},
+     {:cowboy, "~> 1.0"},
+     {:cors_plug, "~> 0.1.4"},
+     {:trailing_format_plug, "~> 0.0.4"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
